@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 
 	VALUES(v);
 	va_start(par, format);
-	CHECK_FORMAT(format);
+	if (format == NULL)
+		return (0);
 	while (format[v.x] != '\0')
 	{
 		if (*format != '%')

@@ -32,11 +32,7 @@ typedef struct var
 	(v.x) = 0; \
 	(v.y) = 0; \
 } while (0)
-#define CHECK_FORMAT(format) \
-{ \
-	if ((format) == NULL) \
-	return (0) \
-}
+
 int _putchar(char q);
 void printstr(char *s);
 int _printf(const char *format, ...);
