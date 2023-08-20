@@ -30,7 +30,7 @@ static char converter_handler(char **string)
 
 static int tag_caller(char converter, va_list args)
 {
-/*	if (converter == 'c')
+	if (converter == 'c')
 		return (char_handler(args));
 	if (converter == 's')
 		return (str_handler(args));
@@ -45,21 +45,7 @@ static int tag_caller(char converter, va_list args)
 	if (converter == '%')
 		return (percent_handler());
 	else
-		return (tag_invalid(converter));*/
-    switch (converter) {
-        case 'c':
-            return char_handler(args);
-        case 's':
-            return str_handler(args);
-        case 'd':
-        case 'i':
-            return int_handler(args);
-        case '%':
-            return percent_handler();
-        default:
-            return tag_invalid(converter);
-}
-
+		return (tag_invalid(converter));
 }
 
 static int prefix_handler(char **string)
