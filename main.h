@@ -36,5 +36,6 @@ typedef struct var
 int _putchar(char q);
 void printstr(char *s);
 int _printf(const char *format, ...);
+void switch_func(const char *format, va_list par);
 
 #endif /*MAIN.H*/
