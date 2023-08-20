@@ -1,20 +1,18 @@
-#include <limits.h>
-#include <stdio.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-    int len;
-    int len2;
+    int chars_printed;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    printf("Length:[%d, %i]\n", len2, len);
+    chars_printed = _printf("Let's try to printf a simple sentence.\n");
+    _printf("Plain text: This is a test.\n");
+    _printf("Character: %c\n", 'A');
+    _printf("String: %s\n", "Hello, World!");
+    _printf("Percentage sign: %%\n");
+    _printf("Mixed: %c %s %%%c\n", 'X', "Custom Print", 'Y');
+
+    printf("\nTotal characters printed: %d\n", chars_printed);
 
     return (0);
 }
+
