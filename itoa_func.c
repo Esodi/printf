@@ -6,9 +6,9 @@ char *_itoa(int n)
 	char *p;
 
 	i = _intlen(n);
-	minus = (n < 0);
+	minus = n < 0;
 	i += minus;
-	p = (char *) malloc(sizeof(char) * (i + 1));
+	p = (char *) malloc(sizeof(char) * i + 1);
 	if (p == NULL)
 		return (NULL);
 	p[i] = '\0';
