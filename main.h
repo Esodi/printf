@@ -21,6 +21,8 @@ typedef struct var
 	char *s;
 	int x;
 	int y;
+	int i;
+	int d;
 } var;
 
 #define INC(format, y) \

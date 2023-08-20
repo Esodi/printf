@@ -1,4 +1,33 @@
 #include "main.h"
+/*
+void print_digit(int d)
+{
+	int index = 0;
+	int i, num;
+	char temp[20];
+	char arr[20];
+
+	if (d < 0)
+	{
+		_putchar('-');
+		d = -d;
+	}
+	if (d == 0)
+	{
+		_putchar('0');
+		return;
+	}
+	while (d > 0)
+	{
+		temp[index++] = '0' + (d % 10);
+		d /= 10;
+	}
+	temp[index] = '\0';
+	for (i = index - 1; i >+ 0; i--)
+	{
+		strcpy(arr, temp[i]);
+	}
+}	*/
 
 /**
  * _printf - print out its arguments and returns the number of the string
@@ -42,6 +71,13 @@ int _printf(const char *format, ...)
 					v.p = '%';
 					write(1, &(v.p), 1);
 					INC(format, v.y);
+					break;
+				case 'd':
+				case 'i':
+					v.i = va_arg(par, int);
+					printf("%d", v.i);
+					/*v.y = strlen(v.i) + v.y;*/
+					format++;
 					break;
 				default:
 					return (-1);
