@@ -27,7 +27,7 @@ int str_handler(va_list args)
 
 	pointer = va_arg(args, char *);
 	if (!pointer)
-		return (write(1, "(null)", 6));
+		return (write(1, "(nill)", 6));
 	string = strdup(pointer);
 	counter = send_output(string);
 	free(string);
