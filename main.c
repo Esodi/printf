@@ -1,18 +1,30 @@
 #include "main.h"
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-    int chars_printed;
+    int len;
+    int len2;
 
-    chars_printed = _printf("Let's try to printf aaaa simple sentence.\n");
-    _printf("Plain text: This is a test.\n");
-    _printf("Character: %c\n", 'A');
-    _printf("String: %s\n", "Hello, World!");
-    _printf("Percentage sign: %%\n");
-    _printf("Mixed: %c %s %%%c\n", 'X', "Custom Print", 'Y');
-
-    _printf("\nTotal characters printed: %d\n", chars_printed);
-
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+     _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+     _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+      len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    _printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");
     return (0);
 }
-
