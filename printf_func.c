@@ -5,6 +5,7 @@ static int has_format_tag(char *string)
 	if (strchr(string, '%'))
 		return (1);
 	return (0);
+	/*return strchr(string, '%') != NULL;*/
 }
 
 int send_output(char *string)
@@ -24,6 +25,8 @@ int _printf(const char *format, ...)
 	int tmp_count;
 	char *tmp_format;
 
+	if (format == NULL)
+		return (-1);
 	if (!has_format_tag((char *)format))
 		return (send_output((char *)format));
 	va_start(args, format);
