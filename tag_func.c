@@ -2,7 +2,7 @@
 
 static int tag_caller(char converter, va_list args);
 static int prefix_handler(char **string);
-static int tag_invalid(char converter);
+static int tag_invalid();
 static char converter_handler(char **string);
 
 int tag_handler(char **string, va_list args)
@@ -45,7 +45,7 @@ static int tag_caller(char converter, va_list args)
 	if (converter == '%')
 		return (percent_handler());
 	else
-		return (tag_invalid(converter));
+		return (tag_invalid());
 }
 
 static int prefix_handler(char **string)
@@ -58,7 +58,7 @@ static int prefix_handler(char **string)
 	if (!start)
 	{
 		counter = send_output(*string);
-	/*	*string = strchr(*string, '\0');*/
+		*string = strchr(*string, '\0');
 		*string += strlen(*string);
 		return (counter);
 	}
@@ -73,9 +73,12 @@ static int prefix_handler(char **string)
 	return (counter);
 }
 
-static int tag_invalid(char converter)
+/*static int tag_invalid(char converter)*/
+static int tag_invalid()
 {
-	_putchar_fd('%', 1);
+/*	_putchar_fd('%', 1);
 	_putchar_fd(converter, 1);
-	return (2);
+	return (2);*/
+	return (-1);
+
 }

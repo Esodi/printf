@@ -25,8 +25,10 @@ int _printf(const char *format, ...)
 	int tmp_count;
 	char *tmp_format;
 
-	if (format == NULL)
+	if (format == NULL) 
+	{
 		return (-1);
+	}
 	if (!has_format_tag((char *)format))
 		return (send_output((char *)format));
 	va_start(args, format);
