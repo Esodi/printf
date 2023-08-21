@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	int tmp_count;
 	char *tmp_format;
 
-	if (format == NULL) 
+	if (format == NULL || strcmp(format, "%") == 0) 
 	{
 		return (-1);
 	}

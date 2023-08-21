@@ -21,5 +21,5 @@ void _putchar_fd(char x, int fd);
 char *_substr(char const *s, unsigned int start, size_t len);
 char *_itoa(int n);
 size_t _intlen(int i);
-
+char *_substr(char const *s, unsigned int start, size_t len);
 #endif /*MAIN_H*/

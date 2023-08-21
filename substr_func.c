@@ -30,4 +30,3 @@ char *_substr(char const *s, unsigned int start, size_t len)
 	p[substring_length] = '\0';
 	return (p);
 }
-
