@@ -45,6 +45,8 @@ static int tag_caller(char converter, va_list args)
 		return (hex_handler(converter, args));*/
 	if (converter == '%')
 		return (percent_handler());
+/*	if (converter == '\0')
+		return (-1);*/
 	else
 		return (tag_invalid(converter));
 }
@@ -73,6 +75,7 @@ static int prefix_handler(char **string)
 	free(tmp_str);
 	return (counter);
 }
+
 
 static int tag_invalid(char converter)
 /*static int tag_invalid()*/
