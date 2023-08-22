@@ -62,7 +62,7 @@ static int prefix_handler(char **string)
 	{
 		counter = send_output(*string);
 		*string = strchr(*string, '\0');
-		*string += strlen(*string);
+/*		*string += strlen(*string);*/
 		return (counter);
 	}
 	if (!(start - *string))

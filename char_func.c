@@ -36,5 +36,5 @@ int str_handler(va_list args)
 
 int percent_handler(void)
 {
-	return (putchar('%'));
+	return (write(1, "%", 1));
 }
