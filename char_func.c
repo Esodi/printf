@@ -50,7 +50,7 @@ int str_agent(va_list par)
 }
 
 /**
- * percent_agent - Deals with double % converters in a string.
+ * p_agent - Deals with double % converters in a string.
  *
  * Return: The number of chars printed.
  */
