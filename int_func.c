@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * int_handler - Deals with i or d converter in a string.
+ * int_handler - Handles integer formatting and output
+ * @args: A variable argument list containing the integer to be formatted
  *
- * @args: A va_list.
- *
- * Return: The number of chars printed.
+ * Return: The number of characters written to the output.
  */
+
 int int_handler(va_list args)
 {
 	char *string;
