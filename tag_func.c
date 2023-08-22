@@ -1,45 +1,45 @@
 #include "main.h"
 
-static int tag_caller(char converter, va_list args);
-static int prefix_handler(char **string);
+static int tag_caller(char converter, va_list par);
+static int prefix_agent(char **str);
 static int tag_invalid(char converter);
-static char converter_handler(char **string);
+static char converter_agent(char **str);
 
 /**
- * tag_handler - Deals with the incidence of % in a string.
+ * tag_agent - Deals with the incidence of % in a string.
  *
- * @string: Pointer to a string.
- * @args: A va_list.
+ * @str: Pointer to a string.
+ * @par: A va_list.
  *
  * Return: The number of chars printed.
  */
-int tag_handler(char **string, va_list args)
+int tag_agent(char **str, va_list par)
 {
 	int counter;
 
-	if (**string)
+	if (**str)
 	{
-		counter = prefix_handler(string);
+		counter = prefix_agent(str);
 		if (counter)
 			return (counter);
-		return (tag_caller(converter_handler(string), args));
+		return (tag_caller(converter_agent(str), par));
 	}
 	return (0);
 }
 
 /**
- * converter_handler - handles converter.
+ * converter_agent - handles converter.
  *
- * @string: A string.
+ * @str: A string.
  *
  * Return: tag.
  */
-static char converter_handler(char **string)
+static char converter_agent(char **str)
 {
 	char tag;
 
-	tag = (*string)[1];
-	*string = *string + 2;
+	tag = (*str)[1];
+	*str = *str + 2;
 	return (tag);
 }
 
@@ -48,52 +48,52 @@ static char converter_handler(char **string)
  *
  * @converter: A placeholder.
  *
- * @args: Arguments.
+ * @par: Arguments.
  *
  * Return: Handler (Success).
  */
-static int tag_caller(char converter, va_list args)
+static int tag_caller(char converter, va_list par)
 {
 
 	if (converter == 'c')
-		return (char_handler(args));
+		return (char_agent(par));
 	if (converter == 's')
-		return (str_handler(args));
+		return (str_agent(par));
 	if (converter == 'd' || converter == 'i')
-		return (int_handler(args));
+		return (int_agent(par));
 	if (converter == '%')
-		return (percent_handler());
+		return (p_agent());
 	else
 		return (tag_invalid(converter));
 }
 
 /**
- * prefix_handler - handles prefix
+ * prefix_agent - handles prefix
  *
- * @string: A string.
+ * @str: A string.
  *
  * Return: int.
  */
-static int prefix_handler(char **string)
+static int prefix_agent(char **str)
 {
 	char *tmp_str;
 	char *start;
 	int counter;
 
-	start = strchr(*string, '%');
+	start = strchr(*str, '%');
 	if (!start)
 	{
-		counter = send_output(*string);
-		*string = strchr(*string, '\0');
+		counter = send_output(*str);
+		*str = strchr(*str, '\0');
 		return (counter);
 	}
-	if (!(start - *string))
+	if (!(start - *str))
 		return (0);
-	tmp_str = _substr(*string, 0, start - *string);
+	tmp_str = _substr(*str, 0, start - *str);
 	if (!tmp_str)
 		return (-1);
 	counter = send_output(tmp_str);
-	*string = start;
+	*str = start;
 	free(tmp_str);
 	return (counter);
 }

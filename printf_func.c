@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * has_format_tag - checks for % sign.
+ * the_tag - checks for % sign.
  *
  * @string: A string.
  *
  * Return: 1 (Success) 0 (Fail)
  */
-static int has_format_tag(char *string)
+static int the_tag(char *string)
 {
 	if (strchr(string, '%'))
 		return (1);
@@ -28,39 +28,34 @@ int send_output(char *string)
 }
 
 /**
- * _printf - Prints a formatted string.
- *
+ * _printf - Prints a string.
  * @format: The base string.
- *
- * Description: It can handle the following arguments
- * (converter flags) such as c, s, d, i, and % but no flags.
- *
  * Return: The number of chars printed.
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count;
-	int tmp_count;
-	char *tmp_format;
+	va_list par;
+	int len;
+	int tmp_L;
+	char *tmp_F;
 
 	if (format == NULL || strcmp(format, "%") == 0)
 	{
 		return (-1);
 	}
-	if (!has_format_tag((char *)format))
+	if (!the_tag((char *)format))
 		return (send_output((char *)format));
-	va_start(args, format);
-	tmp_format = (char *)format;
-	count = tag_handler(&tmp_format, args);
-	tmp_count = 1;
-	while (*tmp_format && tmp_count != -1)
+	va_start(par, format);
+	tmp_F = (char *)format;
+	len = tag_agent(&tmp_F, par);
+	tmp_L = 1;
+	while (*tmp_F && tmp_L != -1)
 	{
-		tmp_count = tag_handler(&tmp_format, args);
-		count += tmp_count;
+		tmp_L = tag_agent(&tmp_F, par);
+		len += tmp_L;
 	}
-	va_end(args);
-	if (tmp_count == -1)
-		return (tmp_count);
-	return (count);
+	va_end(par);
+	if (tmp_L == -1)
+		return (tmp_L);
+	return (len);
 }

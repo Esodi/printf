@@ -8,18 +8,14 @@
 #include <limits.h>
 
 int _printf(const char *format, ...);
-int send_output(char *string);
-int tag_handler(char **string, va_list args);
-int char_handler(va_list args);
-int str_handler(va_list args);
-int int_handler(va_list args);
-int uint_handler(va_list args);
-int ptr_handler(va_list args);
-int hex_handler(char converter, va_list args);
-int percent_handler(void);
+int send_output(char *str);
+int tag_agent(char **str, va_list par);
+int char_agent(va_list par);
+int str_agent(va_list par);
+int int_agent(va_list par);
+int p_agent(void);
 void _putchar_fd(char x, int fd);
 char *_substr(char const *s, unsigned int start, size_t len);
 char *_itoa(int n);
 size_t _intlen(int i);
-char *_substr(char const *s, unsigned int start, size_t len);
 #endif /*MAIN_H*/
