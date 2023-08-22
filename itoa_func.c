@@ -1,4 +1,12 @@
 #include "main.h"
+
+/**
+ * _itoa - int to str
+ *
+ * @n: input
+ *
+ * Return: p
+ */
 char *_itoa(int n)
 {
 	size_t i;

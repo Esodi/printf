@@ -1,4 +1,12 @@
 #include "main.h"
+
+/**
+ * has_format_tag - checks for % sign.
+ *
+ * @string: A string.
+ *
+ * Return: 1 (Success) 0 (Fail)
+ */
 static int has_format_tag(char *string)
 {
 	if (strchr(string, '%'))
@@ -7,15 +15,27 @@ static int has_format_tag(char *string)
 
 }
 
+/**
+ * send_output - Send a string to STDOUT.
+ *
+ * @string: A string.
+ *
+ * Return: The number of chars printed.
+ */
 int send_output(char *string)
 {
 	return (write(1, string, strlen(string)));
 }
 
 /**
- * _printf - print to std output
- * @format: string
- * Return: length of the string
+ * _printf - Prints a formatted string.
+ *
+ * @format: The base string.
+ *
+ * Description: It can handle the following arguments
+ * (converter flags) such as c, s, d, i, and % but no flags.
+ *
+ * Return: The number of chars printed.
  */
 int _printf(const char *format, ...)
 {
@@ -24,7 +44,7 @@ int _printf(const char *format, ...)
 	int tmp_count;
 	char *tmp_format;
 
-	if (format == NULL || strcmp(format, "%") == 0) 
+	if (format == NULL || strcmp(format, "%") == 0)
 	{
 		return (-1);
 	}

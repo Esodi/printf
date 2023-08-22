@@ -1,5 +1,16 @@
 #include "main.h"
 
+/**
+ * _substr - extract the part of thre string.
+ *
+ * @s: A string
+ *
+ * @start: uint
+ *
+ * @len: size
+ *
+ * Return: p
+ */
 char *_substr(char const *s, unsigned int start, size_t len)
 {
 	char *p;
@@ -9,22 +20,22 @@ char *_substr(char const *s, unsigned int start, size_t len)
 	if (start >= input_length)
 	{
 		p = (char *)malloc(1);
-		if (p == NULL) 
+		if (p == NULL)
 		{
-			return NULL;
+			return (NULL);
 		}
 		p[0] = '\0';
-		return p;
+		return (p);
 	}
 	substring_length = input_length - start;
-	if (substring_length > len) 
+	if (substring_length > len)
 	{
 		substring_length = len;
 	}
 	p = (char *)malloc(substring_length + 1);
-	if (p == NULL) 
+	if (p == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	strncpy(p, &s[start], substring_length);
 	p[substring_length] = '\0';

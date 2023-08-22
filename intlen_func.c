@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _intlen - len of int.
+ *
+ * @i: An integer
+ *
+ * Return: Size
+ */
 size_t _intlen(int i)
 {
 	size_t size;
